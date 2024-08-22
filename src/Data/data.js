@@ -1360,4 +1360,4 @@ const properties = [
     isFavourite: true,
   },
 ];
-export default property;
+export default properties;
