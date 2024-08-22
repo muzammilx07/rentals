@@ -18,21 +18,28 @@ const MainPage = () => {
   const [dataToDisplay, setDataToDisplay] = useState(PropertyData);
 
   useEffect(() => {
-      switch (currentPath) {
-        case "/buy":
-          setDataToDisplay(buyData);
-          break;
-        case "/favourite":
-          setDataToDisplay(favouriteData);
-          break;
-        case "/rent":
-          setDataToDisplay(rentalData);
-          break;
-        case "/":
-        default:
-          setDataToDisplay(PropertyData);
-          break;
-         }
+    let data;
+
+    switch (currentPath) {
+      case "/buy":
+        data = buyData;
+        break;
+      case "/favourite":
+        data = favouriteData;
+        break;
+      case "/rent":
+        data = rentalData;
+        break;
+      case "/":
+      default:
+        data = PropertyData;
+        break;
+    }
+    if (filteredData.length > 0) {
+      setDataToDisplay(filteredData);
+    } else {
+      setDataToDisplay(data);
+    }
   }, [currentPath, filteredData, rentalData, buyData, favouriteData]);
 
   return (
@@ -41,7 +48,7 @@ const MainPage = () => {
         <NavbarMenu />
         <Filter />
       </div>
-      <div className="dataContainer flex-grow px-52 py-10 flex flex-col">
+      <div className="dataContainer flex-grow lg:px-52 md:px-2 py-10 flex flex-col">
         <CardList properties={dataToDisplay || []} />
       </div>
       <footer className="m-8 flex justify-center">
