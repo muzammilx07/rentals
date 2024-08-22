@@ -48,7 +48,7 @@ const MainPage = () => {
         <NavbarMenu />
         <Filter />
       </div>
-      <div className="dataContainer flex-grow ld:px-52 ld:py-10 flex flex-col">
+      <div className="dataContainer flex-grow lg:px-52 lg:py-10  md-p-2 flex flex-col">
         <CardList properties={dataToDisplay || []} />
       </div>
       <footer className="m-8 flex justify-center">
