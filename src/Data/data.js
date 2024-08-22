@@ -1,4 +1,4 @@
-const properties = [
+const property  = [
   // Mumbai
   {
     id: "0000000001",
@@ -1360,4 +1360,4 @@ const properties = [
     isFavourite: true,
   },
 ];
-export default properties;
+export default property;
