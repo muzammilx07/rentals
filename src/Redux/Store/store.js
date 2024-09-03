@@ -1,12 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import filterSlice from "../Slices/filterSlice";
-import customDataSlice, { clearExpiredFavourites } from "../Slices/customData";
+import dataReducer from "../Slices/dataSlice";
+import rentalReducer from "../Slices/rentalSlice";
+import buyReducer from "../Slices/buySlice";
+import favouriteSlice from "../Slices/favouriteSlice";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    filter: filterSlice,
-    customData: customDataSlice,
+    data: dataReducer,
+    rental: rentalReducer,
+    buy: buyReducer,
+    favourite: favouriteSlice,
   },
 });
 
-store.dispatch(clearExpiredFavourites());
+export default store;

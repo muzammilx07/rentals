@@ -8,6 +8,7 @@ import {
 } from "../Data/filter";
 
 const FilterForm = ({ filters, onFilterChange, onReset }) => {
+  
   return (
     <div className="p-4 flex justify-center">
       <form className="max-w-full mx-auto flex flex-wrap gap-4 items-end">

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaStar, FaBed, FaBath, FaHeart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavourite, removeFavourite } from "../Redux/Slices/customData";
+import { addFavourite, removeFavourite } from "../Redux/Slices/favouriteSlice";
 
 const PropertyCard = ({ property }) => {
   const {
@@ -18,13 +18,14 @@ const PropertyCard = ({ property }) => {
   } = property;
 
   const dispatch = useDispatch();
-  const favouriteData = useSelector((state) => state.customData.favouriteData);
+
+  const favouriteData = useSelector((state) => state.favourite.favouriteData);
+
 
   const isFavourite = favouriteData.some((fav) => fav.id === id);
   const starCount = parseInt(starRating.split(" ")[0], 10);
 
   const handleFavouriteClick = () => {
-    console.log("Handle Favourite Click", { id, isFavourite });
     if (isFavourite) {
       dispatch(removeFavourite({ id }));
     } else {
